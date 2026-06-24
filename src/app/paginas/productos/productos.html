@@ -1,0 +1,23 @@
+
+<div class="row">
+    @for(p of Productos; track p.id){
+        @if(p.disponibilidad){
+            <div class="card">
+                <div class="card-img-container">
+                    <img [src]="p.imagen" class="card-img-top" [alt]="p.nombre">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">{{p.nombre}}</h5>
+                    <p class="card-text">{{p.descripcion}}</p>
+                    <p class="card-precio">${{p.precio}}</p>
+                    <div class="card-buttons">
+                        <button (click)="agregarCarrito(p)" class="btn-agregar">agregar al carrito</button>
+                        <button (click)="agregarFavorito(p)" class="btn-favorito">❤</button>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+</div>
+
+

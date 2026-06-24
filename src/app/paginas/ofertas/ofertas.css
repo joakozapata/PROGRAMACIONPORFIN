@@ -1,0 +1,178 @@
+/* --- CONTENEDOR PRINCIPAL (TODO EL ANCHO) --- */
+.row {
+    display: flex !important;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 2rem;
+    width: 100%;
+    max-width: 100% !important;
+    padding: 2rem;
+    background: #0f172a;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* --- TARJETA DE PRODUCTO --- */
+.card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    /* Necesario para ubicar el badge flotante */
+    flex: 1 1 calc(25% - 2rem);
+    min-width: 250px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    border-color: rgba(96, 165, 250, 0.3);
+}
+
+/* Etiqueta flotante de Oferta */
+.badge-oferta {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: #ef4444;
+    /* Rojo llamativo */
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    z-index: 10;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 10px rgba(239, 68, 68, 0.3);
+}
+
+/* --- CONTENEDOR DE LA IMAGEN --- */
+.card-img-container {
+    width: 100%;
+    height: 370px;
+    background: rgb(255, 255, 255);
+    overflow: hidden;
+}
+
+.card-img-top {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+   
+    transition: transform 0.3s ease;
+}
+
+.card:hover .card-img-top {
+    transform: scale(1.05);
+}
+
+/* --- TEXTOS Y CUERPO --- */
+.card-body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.card-title {
+    color: #f8fafc;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem 0;
+    text-transform: capitalize;
+}
+
+.card-text {
+    color: #94a3b8;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin: 0 0 1.5rem 0;
+    flex-grow: 1;
+}
+
+/* --- SECCIÓN DE PRECIOS MODIFICADA --- */
+.card-precios-container {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    /* Espacio entre el precio nuevo y el viejo */
+    margin: 0 0 1.25rem 0;
+}
+
+/* Precio con descuento (Actual) */
+.card-precio {
+    color: #22c55e;
+    /* Cambiado a verde esmeralda para resaltar que es oferta/oportunidad */
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+/* Precio Anterior Tachado */
+.precio-anterior {
+    color: #64748b;
+    font-size: 1rem;
+    text-decoration: line-through;
+    /* Esto hace la línea tachada */
+    font-weight: 500;
+}
+
+/* --- BOTONES --- */
+.card-buttons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.btn-agregar {
+    flex: 1;
+    background: linear-gradient(135deg, #60a5fa, #a78bfa);
+    color: #fff;
+    border: none;
+    padding: 0.75rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+.btn-agregar:hover {
+    opacity: 0.9;
+}
+
+.btn-favorito {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #ef4444;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-favorito:hover {
+    background: rgba(239, 68, 68, 0.1);
+    border-color: #ef4444;
+}
+
+/* Adaptabilidad */
+@media (max-width: 576px) {
+    .row {
+        padding: 1rem;
+        gap: 1rem;
+    }
+
+    .card {
+        flex: 1 1 100%;
+    }
+
+    .card-img-container {
+        height: 200px;
+    }
+}

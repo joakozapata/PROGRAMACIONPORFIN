@@ -1,0 +1,27 @@
+<div class="row">
+    @for(p of Ofertas; track p.id){
+        @if(p.disponibilidad){
+            <div class="card">
+                <div class="badge-oferta">Oferta</div>
+                
+                <div class="card-img-container">
+                    <img [src]="p.imagen" class="card-img-top" [alt]="p.nombre">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">{{p.nombre}}</h5>
+                    <p class="card-text">{{p.descripcion}}</p>
+                    
+                    <div class="card-precios-container">
+                        <span class="card-precio">${{p.precio}}</span>
+                        <span class="precio-anterior">${{p.precio * 0.7 }}</span>
+                    </div>
+
+                    <div class="card-buttons">
+                        <button (click)="agregarCarrito(p)" class="btn-agregar">agregar al carrito</button>
+                        <button (click)="agregarFavorito(p)" class="btn-favorito">❤</button>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+</div>

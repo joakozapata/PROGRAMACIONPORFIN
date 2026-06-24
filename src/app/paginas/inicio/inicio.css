@@ -1,0 +1,161 @@
+.hero-section {
+  background: #0f172a; /* Fondo oscuro unificado con tu navbar y footer */
+  color: #f1f5f9;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* --- ALINEACIÓN HORIZONTAL MEDIANTE FLEXBOX --- */
+.hero-section .row {
+  display: flex !important;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  gap: 2rem;
+}
+
+/* Columnas equilibradas */
+.hero-section .col-lg-6 {
+  flex: 1;
+  min-width: 300px;
+}
+
+/* --- TEXTO Y GRADIENTES --- */
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+
+/* Efecto degradado moderno para "tus botines" y "Overflow" */
+.gradient-text {
+  background: linear-gradient(135deg, #60a5fa, #a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+}
+
+.hero-subtitle {
+  color: #94a3b8;
+  font-size: 1.25rem;
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+}
+
+/* --- BOTÓN PRINCIPAL --- */
+.btn-primary {
+  background: linear-gradient(135deg, #60a5fa, #a78bfa);
+  color: #fff;
+  border: none;
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 12px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 20px rgba(96, 165, 250, 0.2);
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 25px rgba(96, 165, 250, 0.3);
+}
+
+/* --- ESTADÍSTICAS EN FILA --- */
+.hero-stats {
+  display: flex;
+  gap: 3rem;
+  margin-top: 3rem;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #f8fafc;
+}
+
+.stat-label {
+  color: #64748b;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* --- ÁREA DE TARJETAS FLOTANTES (DERECHA) --- */
+.hero-image {
+  position: relative;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Base de diseño para las tarjetas flotantes */
+.floating-card {
+  position: absolute;
+  width: 200px;
+  height: 350px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #60a5fa;
+  font-size: 1.5rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Disposición tridimensional/esparcida en pantalla */
+.card-1 { top: 25%; left: 50%; animation-delay: 0s; }
+.card-2 { top: 30%; right: 50%; animation-delay: 1s; color: #a78bfa; }
+.card-3 { bottom: 35%; left: 55%; animation-delay: 2s; color: #34d399; }
+.card-4 { bottom: 25%; right: 55%; animation-delay: 3s; color: #fbbf24; }
+
+/* Animación de flotación levitante */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+/* --- ADAPTABILIDAD MÓVIL --- */
+@media (max-width: 992px) {
+  .hero-section .row {
+    flex-direction: column; /* Apila en vertical si la pantalla es pequeña */
+    text-align: center;
+    padding: 6rem 1.5rem 3rem;
+  }
+  
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .hero-stats {
+    justify-content: center;
+    gap: 2rem;
+  }
+  
+  .hero-image {
+    height: 300px;
+    margin-top: 2rem;
+  }
+}

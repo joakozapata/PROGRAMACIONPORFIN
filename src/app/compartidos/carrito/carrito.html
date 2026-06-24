@@ -1,0 +1,56 @@
+<!-- Tabla de productos -->
+@if(productosCarrito.length > 0){
+<table class="table-carrito">
+  <thead>
+    <tr>
+      <th>Imagen</th>
+      <th>Producto</th>
+      <th>Cantidad</th>
+      <th>Precio</th>
+      <th>Eliminar</th>
+    </tr>
+  </thead>
+  @for(p of productosCarrito; track p.id){
+  <tbody id="carrito-body">
+    <tr>
+      <td><img src="{{p.imagen}}" alt="Producto" class="producto-img"></td>
+      <td class="producto-titulo">{{p.nombre}}</td>
+      <td>
+        <div class="cantidad-botones">
+          <button (click)="disminuir(p.id)">-</button>
+          <span class="cantidad-numero">{{p.cantidad}}</span>
+          <button (click)="aumentar(p.id)">+</button>
+        </div>
+      </td>
+      <td class="producto-precio">{{p.precio*p.cantidad}}</td>
+      <td><button class="btn-eliminar" (click)="eliminar(p.id)">Eliminar</button></td>
+    </tr>
+  </tbody>
+}
+
+  <tfoot>
+    <tr>
+      <td colspan="5" class="total-final">
+        Total: <span id="total-precio">{{calcularTotal()}}</span>
+      </td>
+    </tr>
+  </tfoot>
+  <button (click)="vaciarCarrito()" [disabled]="productosCarrito.length === 0">
+    Vaciar Carrito
+  </button>
+</table>
+}@else{
+<div style="text-align: center; padding: 4rem 2rem; background: #0f172a; border-radius: 20px; font-family: system-ui, -apple-system, sans-serif; max-width: 450px; margin: 0 auto;">
+    <h2 style="color: #f8fafc; font-size: 1.8rem; font-weight: 700; margin: 0 0 0.75rem 0; letter-spacing: -0.5px;">
+        Tu carrito está vacío 💨
+    </h2>
+    
+    <p style="color: #64748b; font-size: 1rem; margin: 0 0 2rem 0; line-height: 1.5;">
+        No te quedes fuera de la cancha. Recorré la tienda y encontrá lo que buscás.
+    </p>
+    
+    <button routerLink="/productos" routerLinkActive="active" style="background: #60a5fa; color: #0f172a; text-decoration: none; padding: 0.75rem 1.5rem; font-size: 0.95rem; font-weight: 600; border-radius: 10px; display: inline-block;">
+        Ver Productos
+    </button>
+</div>
+}
